@@ -58,6 +58,8 @@ print(sorted_dict_key_skills)
 for item in sorted_dict_key_skills:
     print(f"{item[0]}: {item[1]}", end='\n')
 
+#комментарий для гита
+
 
 
 
