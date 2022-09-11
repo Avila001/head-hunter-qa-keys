@@ -1,5 +1,3 @@
-import imp
-import re
 from urllib import response
 
 import requests
