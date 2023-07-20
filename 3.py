@@ -4,10 +4,7 @@ import requests
 import operator
 
 
-print('Hello!')
 url = f"https://api.hh.ru/vacancies?search_field=name&text='Machine learning' OR 'ML'&area=113&items_on_page=1999&per_page=100"
-class Vacancy:
-    pass
 
 response = requests.get(url)
 
@@ -26,8 +23,7 @@ for i in range(pages):
 
     for i in range(len(data)):
         temp_list = [data[i]['employer']['name'], data[i]['name']]
-        #print(temp_list, type(temp_list))
-        #print(data[i]['name'])
+
         if temp_list not in dict_unique_vacancies:
             selected_vacancies.append(data[i])
             dict_unique_vacancies.append(temp_list)
@@ -39,8 +35,6 @@ for i in range(pages):
         response_vacancy =  requests.get(url_vacancy)
         data_vacancy = response_vacancy.json()
         key_skills_one_vacancy = data_vacancy['key_skills']
-        # print(data_vacancy['key_skills'])
-        # print(key_skills_one_vacancy)
         for i in key_skills_one_vacancy:
             key_skill = i['name']
             dict_key_skills[key_skill] = dict_key_skills.get(key_skill, 0) + 1
@@ -56,8 +50,7 @@ print(sorted_dict_key_skills)
 for item in sorted_dict_key_skills:
     print(f"{item[0]}: {item[1]}", end='\n')
 
-#комментарий для гита
-#комментарий для гита2
+
 
 
 
